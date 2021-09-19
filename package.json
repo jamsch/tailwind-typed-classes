@@ -1,0 +1,15 @@
+{
+  "name": "@jamsch/typed-tailwind-classes",
+  "version": "1.0.0",
+  "description": "Typesafe tailwind classes for use in TypeScript projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "jamsch",
+  "license": "ISC",
+  "dependencies": {
+    "clsx": "^1.1.1"
+  }
+}
