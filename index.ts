@@ -890,6 +890,4 @@ export type TailwindClassDictionary = {
 
 export interface TailwindClassArray extends Array<TailwindClassValue> {}
 
-export const tw = (...args: TailwindClassValue[]): string => {
-  return clsx(args);
-};
+export const tw: (...args: TailwindClassValue[]) => string = clsx;
