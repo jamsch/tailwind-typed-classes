@@ -1,9 +1,3 @@
-import clsx from 'clsx';
-
-type Breakpoints = 'xs:' | 'sm:' | 'md:' | 'lg:' | 'xl:' | '';
-
-type Hover = 'hover:' | '';
-
 type Size =
   | 'px'
   | 0
@@ -100,13 +94,13 @@ type TransitionAmount = 75 | 100 | 150 | 200 | 300 | 500 | 700 | 1000;
 // Layout
 
 /** https://tailwindcss.com/docs/container */
-type Container = `${Breakpoints}container`;
+type Container = `container`;
 
 /** https://tailwindcss.com/docs/box-decoration-break */
-type BoxDecorationBreak = `${Breakpoints}decoration-${'slice' | 'clone'}`;
+type BoxDecorationBreak = `decoration-${'slice' | 'clone'}`;
 
 /** https://tailwindcss.com/docs/box-sizing */
-type BoxSizing = `${Breakpoints}box-${'border' | 'content'}`;
+type BoxSizing = `box-${'border' | 'content'}`;
 
 type DisplayMode =
   | 'block'
@@ -132,58 +126,58 @@ type DisplayMode =
   | 'hidden';
 
 /** https://tailwindcss.com/docs/display */
-type Display = `${Breakpoints}display-${DisplayMode}`;
+type Display = `display-${DisplayMode}`;
 /** https://tailwindcss.com/docs/float */
-type Float = `${Breakpoints}float-${'left' | 'right' | 'none'}`;
+type Float = `float-${'left' | 'right' | 'none'}`;
 /** https://tailwindcss.com/docs/clear */
-type Clear = `${Breakpoints}clear-${'left' | 'right' | 'both' | 'none'}`;
+type Clear = `clear-${'left' | 'right' | 'both' | 'none'}`;
 /** https://tailwindcss.com/docs/isolation */
-type Isolation = `${Breakpoints}isolate-auto` | `${Breakpoints}isolation-isolate`;
+type Isolation = `isolate-auto` | `isolation-isolate`;
 /** https://tailwindcss.com/docs/object-fit */
-type ObjectFit = `${Breakpoints}object-${'contain' | 'cover' | 'fill' | 'none' | 'scale-down'}`;
+type ObjectFit = `object-${'contain' | 'cover' | 'fill' | 'none' | 'scale-down'}`;
 
 /** https://tailwindcss.com/docs/object-position */
-type ObjectPosition = `${Breakpoints}object-${PositionSide}`;
+type ObjectPosition = `object-${PositionSide}`;
 
 /** https://tailwindcss.com/docs/overflow */
-type Overflow = `${Breakpoints}overflow${'-x' | '-y' | ''}-${'auto' | 'hidden' | 'visible' | 'scroll'}`;
+type Overflow = `overflow${'-x' | '-y' | ''}-${'auto' | 'hidden' | 'visible' | 'scroll'}`;
 
 /** https://tailwindcss.com/docs/overscroll-behavior */
-type OverscrollBehavior = `${Breakpoints}overscroll${'-x' | '-y' | ''}-${'auto' | 'contain' | 'none'}`;
+type OverscrollBehavior = `overscroll${'-x' | '-y' | ''}-${'auto' | 'contain' | 'none'}`;
 
 /** https://tailwindcss.com/docs/position */
-type Position = `${Breakpoints}position-${'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'}`;
+type Position = `position-${'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'}`;
 
 type Placement = 'inset' | 'top' | 'right' | 'bottom' | 'left';
 
 type PlacementValue = Size | 'auto' | '1/2' | '1/3' | '2/3' | '1/4' | '2/4' | '3/4' | 'full';
 
 /** https://tailwindcss.com/docs/top-right-bottom-left */
-type TopRightBottomLeft = `${Breakpoints}${'-' | ''}${Placement}${'-x' | '-y' | ''}-${PlacementValue}`;
+type TopRightBottomLeft = `${'-' | ''}${Placement}${'-x' | '-y' | ''}-${PlacementValue}`;
 
 /** https://tailwindcss.com/docs/visibility */
-type Visibility = `${Breakpoints}${'visible' | 'invisible'}`;
+type Visibility = `${'visible' | 'invisible'}`;
 
 /** https://tailwindcss.com/docs/z-index */
-type ZIndex = `${Breakpoints}z-${'auto' | '0' | '10' | '20' | '30' | '40' | '50'}`;
+type ZIndex = `z-${'auto' | '0' | '10' | '20' | '30' | '40' | '50'}`;
 
 /** https://tailwindcss.com/docs/flex-direction */
-type FlexDirection = `${Breakpoints}flex-${'row' | 'row-reverse' | 'col' | 'col-reverse'}`;
+type FlexDirection = `flex-${'row' | 'row-reverse' | 'col' | 'col-reverse'}`;
 
 /** https://tailwindcss.com/docs/flex-wrap */
-type FlexWrap = `${Breakpoints}flex-${'wrap' | 'wrap-reverse' | 'nowrap'}`;
+type FlexWrap = `flex-${'wrap' | 'wrap-reverse' | 'nowrap'}`;
 
 /** https://tailwindcss.com/docs/flex */
-type Flex = `${Breakpoints}flex-${'1' | 'auto' | 'initial' | 'none'}`;
+type Flex = `flex-${'1' | 'auto' | 'initial' | 'none'}`;
 
 /** https://tailwindcss.com/docs/flex-grow */
-type FlexGrow = `${Breakpoints}flex-grow${'-0' | ''}`;
+type FlexGrow = `flex-grow${'-0' | ''}`;
 
 /** https://tailwindcss.com/docs/flex-shrink */
-type FlexShrink = `${Breakpoints}flex-shrink${'-0' | ''}`;
+type FlexShrink = `flex-shrink${'-0' | ''}`;
 
 /** https://tailwindcss.com/docs/order */
-type Order = `${Breakpoints}order-${
+type Order = `order-${
   | 'first'
   | 'last'
   | 'none'
@@ -201,7 +195,7 @@ type Order = `${Breakpoints}order-${
   | '12'}`;
 
 /** https://tailwindcss.com/docs/grid-template-columns */
-type GridTemplateColumns = `${Breakpoints}grid-cols-${
+type GridTemplateColumns = `grid-cols-${
   | 'none'
   | '1'
   | '2'
@@ -218,92 +212,72 @@ type GridTemplateColumns = `${Breakpoints}grid-cols-${
 
 /** Grid Column Start / End https://tailwindcss.com/docs/grid-column */
 type GridColumn =
-  | `${Breakpoints}col-${'span' | 'start' | 'end'}-${
-      | '1'
-      | '2'
-      | '3'
-      | '4'
-      | '5'
-      | '6'
-      | '7'
-      | '8'
-      | '9'
-      | '10'
-      | '11'
-      | '12'
-      | '13'}`
-  | `${Breakpoints}col-${'start' | 'end'}-auto`
-  | `${Breakpoints}col-span-full`
-  | `${Breakpoints}col-auto`;
+  | `col-${'span' | 'start' | 'end'}-${'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13'}`
+  | `col-${'start' | 'end'}-auto`
+  | `col-span-full`
+  | `col-auto`;
 
 /** https://tailwindcss.com/docs/grid-template-rows */
-type GridTemplateRows = `${Breakpoints}grid-rows-${1 | 2 | 3 | 4 | 5 | 6 | 'none'}`;
+type GridTemplateRows = `grid-rows-${1 | 2 | 3 | 4 | 5 | 6 | 'none'}`;
 
 /** https://tailwindcss.com/docs/grid-row */
 type GridRow =
-  | `${Breakpoints}row-${'span' | 'start' | 'end'}-${'1' | '2' | '3' | '4' | '5' | '6'}`
-  | `${Breakpoints}row-${'start' | 'end'}-auto`
-  | `${Breakpoints}row-span-full`
-  | `${Breakpoints}row-auto`;
+  | `row-${'span' | 'start' | 'end'}-${'1' | '2' | '3' | '4' | '5' | '6'}`
+  | `row-${'start' | 'end'}-auto`
+  | `row-span-full`
+  | `row-auto`;
 
 /** https://tailwindcss.com/docs/grid-auto-flow */
-type GridAutoFlow = `${Breakpoints}grid-flow-${'row' | 'col'}${'-dense' | ''}`;
+type GridAutoFlow = `grid-flow-${'row' | 'col'}${'-dense' | ''}`;
 
 /** https://tailwindcss.com/docs/grid-auto-columns */
-type GridAutoColumns = `${Breakpoints}auto-cols-${'auto' | 'min' | 'max' | 'fr'}`;
+type GridAutoColumns = `auto-cols-${'auto' | 'min' | 'max' | 'fr'}`;
 
 /** https://tailwindcss.com/docs/gap */
-type Gap = `${Breakpoints}gap${'-x' | '-y' | ''}-${Size}`;
+type Gap = `gap${'-x' | '-y' | ''}-${Size}`;
 
 /** https://tailwindcss.com/docs/justify-content */
-type JustifyContent = `${Breakpoints}justify-${'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'}`;
+type JustifyContent = `justify-${'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'}`;
 
 /** https://tailwindcss.com/docs/justify-items */
-type JustifyItems = `${Breakpoints}justify-items-${'start' | 'end' | 'center' | 'stretch'}`;
+type JustifyItems = `justify-items-${'start' | 'end' | 'center' | 'stretch'}`;
 
 /** https://tailwindcss.com/docs/justify-self */
-type JustifySelf = `${Breakpoints}justify-self-${'auto' | 'start' | 'end' | 'center' | 'stretch'}`;
+type JustifySelf = `justify-self-${'auto' | 'start' | 'end' | 'center' | 'stretch'}`;
 
 /** https://tailwindcss.com/docs/align-content */
-type AlignContent = `${Breakpoints}content-${'center' | 'start' | 'end' | 'between' | 'around' | 'evenly'}`;
+type AlignContent = `content-${'center' | 'start' | 'end' | 'between' | 'around' | 'evenly'}`;
 
 /** https://tailwindcss.com/docs/align-items */
-type AlignItems = `${Breakpoints}items-${'start' | 'end' | 'center' | 'baseline' | 'stretch'}`;
+type AlignItems = `items-${'start' | 'end' | 'center' | 'baseline' | 'stretch'}`;
 
 /** https://tailwindcss.com/docs/align-self */
-type AlignSelf = `${Breakpoints}self-${'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline'}`;
+type AlignSelf = `self-${'auto' | 'start' | 'end' | 'center' | 'stretch' | 'baseline'}`;
 
 /** https://tailwindcss.com/docs/place-content */
-type PlaceContent = `${Breakpoints}place-content-${
-  | 'center'
-  | 'start'
-  | 'end'
-  | 'between'
-  | 'around'
-  | 'evenly'
-  | 'stretch'}`;
+type PlaceContent = `place-content-${'center' | 'start' | 'end' | 'between' | 'around' | 'evenly' | 'stretch'}`;
 
 /** https://tailwindcss.com/docs/place-items */
-type PlaceItems = `${Breakpoints}place-items-${'start' | 'end' | 'center' | 'stretch'}`;
+type PlaceItems = `place-items-${'start' | 'end' | 'center' | 'stretch'}`;
 
 /** https://tailwindcss.com/docs/place-self */
-type PlaceSelf = `${Breakpoints}place-self-${'auto' | 'start' | 'end' | 'center' | 'stretch'}`;
+type PlaceSelf = `place-self-${'auto' | 'start' | 'end' | 'center' | 'stretch'}`;
 
 // SPACING
 
 type Axis = 'x' | 'y' | 't' | 'r' | 'l' | 'b' | '';
 
 /** https://tailwindcss.com/docs/padding */
-type Padding = `${Breakpoints}p${Axis}-${Size}`;
+type Padding = `p${Axis}-${Size}`;
 
 /** https://tailwindcss.com/docs/margin */
-type Margin = `${Breakpoints}${'-' | ''}m${Axis}-${Size}`;
+type Margin = `${'-' | ''}m${Axis}-${Size}`;
 
 /** https://tailwindcss.com/docs/space */
-type Space = `${Breakpoints}${'-' | ''}space-${'x' | 'y'}-${Size | 'reverse'}`;
+type Space = `${'-' | ''}space-${'x' | 'y'}-${Size | 'reverse'}`;
 
 /** https://tailwindcss.com/docs/width */
-type Width = `${Breakpoints}w-${
+type Width = `w-${
   | Size
   | 'auto'
   | '1/2'
@@ -318,10 +292,10 @@ type Width = `${Breakpoints}w-${
   | 'max'}`;
 
 /** https://tailwindcss.com/docs/min-width */
-type MinWidth = `${Breakpoints}min-w-${0 | 'full' | 'min' | 'max'}`;
+type MinWidth = `min-w-${0 | 'full' | 'min' | 'max'}`;
 
 /** https://tailwindcss.com/docs/max-width */
-type MaxWidth = `${Breakpoints}max-w-${
+type MaxWidth = `max-w-${
   | 0
   | 'none'
   | 'xs'
@@ -363,40 +337,28 @@ type ExtraHeightSizes =
   | 'screen';
 
 /** https://tailwindcss.com/docs/height */
-type Height = `${Breakpoints}h-${Size | 'auto' | ExtraHeightSizes}`;
+type Height = `h-${Size | 'auto' | ExtraHeightSizes}`;
 
 /** https://tailwindcss.com/docs/min-height */
-type MinHeight = `${Breakpoints}min-h-${0 | 'full' | 'screen'}`;
+type MinHeight = `min-h-${0 | 'full' | 'screen'}`;
 
 /** https://tailwindcss.com/docs/max-height */
-type MaxHeight = `${Breakpoints}max-h-${Size | ExtraHeightSizes}`;
+type MaxHeight = `max-h-${Size | ExtraHeightSizes}`;
 
 /** https://tailwindcss.com/docs/font-family */
 type FontFamily = 'font-sans' | 'font-serif' | 'font-mono';
 
 /** https://tailwindcss.com/docs/font-size */
-type FontSize = `${Breakpoints}text-${
-  | 'xs'
-  | 'sm'
-  | 'base'
-  | 'lg'
-  | 'xl'
-  | '2xl'
-  | '3xl'
-  | '4xl'
-  | '5xl'
-  | '6xl'
-  | '8xl'
-  | '9xl'}`;
+type FontSize = `text-${'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '8xl' | '9xl'}`;
 
 /** https://tailwindcss.com/docs/font-smoothing */
-type FontSmoothing = `${Breakpoints}${'antialiased' | 'subpixel-antialiased'}`;
+type FontSmoothing = `${'antialiased' | 'subpixel-antialiased'}`;
 
 /** https://tailwindcss.com/docs/font-style */
-type FontStyle = `${Breakpoints}${'italic' | 'not-italic'}`;
+type FontStyle = `${'italic' | 'not-italic'}`;
 
 /** https://tailwindcss.com/docs/font-weight */
-type FontWeight = `${Breakpoints}font-${
+type FontWeight = `font-${
   | 'thin'
   | 'extralight'
   | 'light'
@@ -408,7 +370,7 @@ type FontWeight = `${Breakpoints}font-${
   | 'black'}`;
 
 /** https://tailwindcss.com/docs/font-variant-numeric */
-type FontVariantNumeric = `${Breakpoints}${
+type FontVariantNumeric = `${
   | 'normal-nums'
   | 'ordinal'
   | 'slashed-zero'
@@ -420,10 +382,10 @@ type FontVariantNumeric = `${Breakpoints}${
   | 'stacked-fractions'}`;
 
 /** https://tailwindcss.com/docs/letter-spacing */
-type LetterSpacing = `${Breakpoints}tracking-${'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}`;
+type LetterSpacing = `tracking-${'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}`;
 
 /** https://tailwindcss.com/docs/line-height */
-type LineHeight = `${Breakpoints}leading-${
+type LineHeight = `leading-${
   | 3
   | 4
   | 5
@@ -440,83 +402,75 @@ type LineHeight = `${Breakpoints}leading-${
   | 'loose'}`;
 
 /** https://tailwindcss.com/docs/list-style-type */
-type ListStyleType = `${Breakpoints}list-${'none' | 'disc' | 'decimal'}`;
+type ListStyleType = `list-${'none' | 'disc' | 'decimal'}`;
 
 /** https://tailwindcss.com/docs/list-style-position */
-type ListStylePosition = `${Breakpoints}list-${'inside' | 'outside'}`;
+type ListStylePosition = `list-${'inside' | 'outside'}`;
 
 /** https://tailwindcss.com/docs/placeholder-color */
-type PlaceholderColor = `${Breakpoints}placeholder-${Color}`;
+type PlaceholderColor = `placeholder-${Color}`;
 
 /** https://tailwindcss.com/docs/text-align */
-type TextAlign = `${Breakpoints}text-${'left' | 'center' | 'right' | 'justify'}`;
+type TextAlign = `text-${'left' | 'center' | 'right' | 'justify'}`;
 
 /** https://tailwindcss.com/docs/text-color */
-type TextColor = `${Breakpoints}text-${Color}`;
+type TextColor = `text-${Color}`;
 
 /** https://tailwindcss.com/docs/text-opacity */
-type TextOpacity = `${Breakpoints}text-opacity-${OpacityAmount}`;
+type TextOpacity = `text-opacity-${OpacityAmount}`;
 
 /** https://tailwindcss.com/docs/text-decoration */
-type TextDecoration = `${Breakpoints}${Hover}${'underline' | 'line-through' | 'no-underline'}`;
+type TextDecoration = `${'underline' | 'line-through' | 'no-underline'}`;
 
 /** https://tailwindcss.com/docs/text-transform */
-type TextTransform = `${Breakpoints}${'uppercase' | 'lowercase' | 'capitalize' | 'normal-case'}`;
+type TextTransform = `${'uppercase' | 'lowercase' | 'capitalize' | 'normal-case'}`;
 
 /** https://tailwindcss.com/docs/text-overflow */
-type TextOverflow = `${Breakpoints}${'truncate' | 'overflow-ellipsis' | 'overflow-clip'}`;
+type TextOverflow = `${'truncate' | 'overflow-ellipsis' | 'overflow-clip'}`;
 
 /** https://tailwindcss.com/docs/vertical-align */
-type VerticalAlign = `${Breakpoints}align-${'baseline' | 'top' | 'middle' | 'bottom' | 'text-top' | 'text-bottom'}`;
+type VerticalAlign = `align-${'baseline' | 'top' | 'middle' | 'bottom' | 'text-top' | 'text-bottom'}`;
 
 /** https://tailwindcss.com/docs/whitespace */
-type Whitespace = `${Breakpoints}whitespace-${'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap'}`;
+type Whitespace = `whitespace-${'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap'}`;
 
 /** https://tailwindcss.com/docs/word-break */
-type WordBreak = `${Breakpoints}break-${'normal' | 'words' | 'all'}`;
+type WordBreak = `break-${'normal' | 'words' | 'all'}`;
 
 /** https://tailwindcss.com/docs/background-attachment */
-type BackgroundAttachment = `${Breakpoints}bg-${'fixed' | 'local' | 'scroll'}`;
+type BackgroundAttachment = `bg-${'fixed' | 'local' | 'scroll'}`;
 
 /** https://tailwindcss.com/docs/background-clip */
-type BackgroundClip = `${Breakpoints}bg-clip-${'border' | 'padding' | 'content' | 'text'}`;
+type BackgroundClip = `bg-clip-${'border' | 'padding' | 'content' | 'text'}`;
 
 /** https://tailwindcss.com/docs/background-color */
-type BackgroundColor = `${Breakpoints}bg-${Color}`;
+type BackgroundColor = `bg-${Color}`;
 
 /** https://tailwindcss.com/docs/background-opacity */
-type BackgroundOpacity = `${Breakpoints}bg-opacity-${OpacityAmount}`;
+type BackgroundOpacity = `bg-opacity-${OpacityAmount}`;
 
 /** https://tailwindcss.com/docs/background-origin */
-type BackgroundOrigin = `${Breakpoints}bg-origin-${'border' | 'padding' | 'content'}`;
+type BackgroundOrigin = `bg-origin-${'border' | 'padding' | 'content'}`;
 
 /** https://tailwindcss.com/docs/background-position */
-type BackgroundPosition = `${Breakpoints}bg-${PositionSide}`;
+type BackgroundPosition = `bg-${PositionSide}`;
 
 /** https://tailwindcss.com/docs/background-repeat */
-type BackgroundRepeat = `${Breakpoints}bg-${
-  | 'repeat'
-  | 'no-repeat'
-  | 'repeat-x'
-  | 'repeat-y'
-  | 'repeat-round'
-  | 'repeat-space'}`;
+type BackgroundRepeat = `bg-${'repeat' | 'no-repeat' | 'repeat-x' | 'repeat-y' | 'repeat-round' | 'repeat-space'}`;
 
 /** https://tailwindcss.com/docs/background-size */
-type BackgroundSize = `${Breakpoints}bg-${'auto' | 'cover' | 'contain'}`;
+type BackgroundSize = `bg-${'auto' | 'cover' | 'contain'}`;
 
 /** https://tailwindcss.com/docs/background-image */
-type BackgroundImage = `${Breakpoints}bg-${
-  | 'none'
-  | `gradient-to-${'t' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl'}`}`;
+type BackgroundImage = `bg-${'none' | `gradient-to-${'t' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl'}`}`;
 
 /** https://tailwindcss.com/docs/gradient-color-stops */
-type GradientColorStops = `${Breakpoints}${'from' | 'via' | 'to'}-${Color}`;
+type GradientColorStops = `${'from' | 'via' | 'to'}-${Color}`;
 
 /** https://tailwindcss.com/docs/border-radius */
 type BorderRadius =
-  | `${Breakpoints}rounded`
-  | `${Breakpoints}rounded${'-t' | '-r' | '-b' | '-l' | '-tl' | '-tr' | '-br' | '-bl' | ''}-${
+  | `rounded`
+  | `rounded${'-t' | '-r' | '-b' | '-l' | '-tl' | '-tr' | '-br' | '-bl' | ''}-${
       | 'none'
       | 'sm'
       | 'md'
@@ -527,148 +481,142 @@ type BorderRadius =
       | 'full'}`;
 
 /** https://tailwindcss.com/docs/border-width */
-type BorderWidth = `${Breakpoints}border${'-t' | '-r' | '-b' | '-l' | ''}${'-0' | '-2' | '-4' | '-8' | ''}`;
+type BorderWidth = `border${'-t' | '-r' | '-b' | '-l' | ''}${'-0' | '-2' | '-4' | '-8' | ''}`;
 
 /** https://tailwindcss.com/docs/border-color */
-type BorderColor = `${Breakpoints}${Hover}border-${Color}`;
+type BorderColor = `border-${Color}`;
 
 /** https://tailwindcss.com/docs/border-opacity */
-type BorderOpacity = `${Breakpoints}border-opacity-${OpacityAmount}`;
+type BorderOpacity = `border-opacity-${OpacityAmount}`;
 
 /** https://tailwindcss.com/docs/border-style */
-type BorderStyle = `${Breakpoints}border-${'solid' | 'dashed' | 'dotted' | 'double' | 'none'}`;
+type BorderStyle = `border-${'solid' | 'dashed' | 'dotted' | 'double' | 'none'}`;
 
 /** https://tailwindcss.com/docs/divide-width */
-type DivideWidth = `${Breakpoints}divide-${'x' | 'y'}${'-0' | '-2' | '-4' | '-8' | '-reverse' | ''}`;
+type DivideWidth = `divide-${'x' | 'y'}${'-0' | '-2' | '-4' | '-8' | '-reverse' | ''}`;
 
 /** https://tailwindcss.com/docs/divide-color */
-type DivideColor = `${Breakpoints}divide-${Color}`;
+type DivideColor = `divide-${Color}`;
 
 /** https://tailwindcss.com/docs/divide-opacity */
-type DivideOpacity = `${Breakpoints}divide-opacity-${OpacityAmount}`;
+type DivideOpacity = `divide-opacity-${OpacityAmount}`;
 
 /** https://tailwindcss.com/docs/divide-style */
-type DivideStyle = `${Breakpoints}divide-${'solid' | 'dashed' | 'dotted' | 'double' | 'none'}`;
+type DivideStyle = `divide-${'solid' | 'dashed' | 'dotted' | 'double' | 'none'}`;
 
 /** https://tailwindcss.com/docs/ring-width */
-type RingWidth = `${Breakpoints}ring` | `${Breakpoints}ring-${0 | 1 | 2 | 4 | 8 | 'inset'}`;
+type RingWidth = `ring` | `ring-${0 | 1 | 2 | 4 | 8 | 'inset'}`;
 
 /** https://tailwindcss.com/docs/ring-color */
-type RingColor = `${Breakpoints}ring-${Color}`;
+type RingColor = `ring-${Color}`;
 
 /** https://tailwindcss.com/docs/ring-opacity */
-type RingOpacity = `${Breakpoints}ring-opacity-${OpacityAmount}`;
+type RingOpacity = `ring-opacity-${OpacityAmount}`;
 
 /** https://tailwindcss.com/docs/ring-offset-width */
-type RingOffsetWidth = `${Breakpoints}ring-offset-${0 | 1 | 2 | 4 | 8}`;
+type RingOffsetWidth = `ring-offset-${0 | 1 | 2 | 4 | 8}`;
 
 /** https://tailwindcss.com/docs/ring-offset-color */
-type RingOffsetColor = `${Breakpoints}ring-offset-${Color}`;
+type RingOffsetColor = `ring-offset-${Color}`;
 
 /** https://tailwindcss.com/docs/box-shadow */
-type BoxShadow =
-  | `${Breakpoints}shadow`
-  | `${Breakpoints}shadow-${'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner' | 'none'}`;
+type BoxShadow = `shadow` | `shadow-${'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner' | 'none'}`;
 
 /** https://tailwindcss.com/docs/opacity */
-type Opacity = `${Breakpoints}opacity-${OpacityAmount}`;
+type Opacity = `opacity-${OpacityAmount}`;
 
 /** https://tailwindcss.com/docs/mix-blend-mode */
-type MixBlendMode = `${Breakpoints}mix-blend-${BlendMode}`;
+type MixBlendMode = `mix-blend-${BlendMode}`;
 
 /** https://tailwindcss.com/docs/background-blend-mode */
-type BackgroundBlendMode = `${Breakpoints}bg-blend-${BlendMode}`;
+type BackgroundBlendMode = `bg-blend-${BlendMode}`;
 
 /** https://tailwindcss.com/docs/filter */
-type Filter = `${Breakpoints}filter` | `${Breakpoints}filter-none`;
+type Filter = `filter` | `filter-none`;
 
 /** https://tailwindcss.com/docs/blur */
-type Blur = `${Breakpoints}blur` | `${Breakpoints}blur-${'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'}`;
+type Blur = `blur` | `blur-${'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'}`;
 
 /** https://tailwindcss.com/docs/brightness */
-type Brightness = `${Breakpoints}brightness-${BrightnessAmount}`;
+type Brightness = `brightness-${BrightnessAmount}`;
 
 /** https://tailwindcss.com/docs/contrast */
-type Contrast = `${Breakpoints}contrast-${ContrastAmount}`;
+type Contrast = `contrast-${ContrastAmount}`;
 
 /** https://tailwindcss.com/docs/drop-shadow */
-type DropShadow = `${Breakpoints}shadow` | `${Breakpoints}shadow-${'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'none'}`;
+type DropShadow = `shadow` | `shadow-${'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'none'}`;
 
 /** https://tailwindcss.com/docs/grayscale */
-type Grayscale = `${Breakpoints}grayscale` | `${Breakpoints}grayscale-0`;
+type Grayscale = `grayscale` | `grayscale-0`;
 
 /** https://tailwindcss.com/docs/hue-rotate */
-type HueRotate = `${Breakpoints}${'-' | ''}hue-rotate-${HueRotateAmount}`;
+type HueRotate = `${'-' | ''}hue-rotate-${HueRotateAmount}`;
 
 /** https://tailwindcss.com/docs/invert */
-type Invert = `${Breakpoints}invert` | `${Breakpoints}invert-0`;
+type Invert = `invert` | `invert-0`;
 
 /** https://tailwindcss.com/docs/saturate */
-type Saturate = `${Breakpoints}saturate-${0 | 50 | 100 | 150 | 200}`;
+type Saturate = `saturate-${0 | 50 | 100 | 150 | 200}`;
 
 /** https://tailwindcss.com/docs/sepia */
-type Sepia = `${Breakpoints}sepia` | `${Breakpoints}sepia-0`;
+type Sepia = `sepia` | `sepia-0`;
 
 /** https://tailwindcss.com/docs/backdrop-filter */
-type BackdropFilter = `${Breakpoints}backdrop-filter` | `${Breakpoints}backdrop-filter-none`;
+type BackdropFilter = `backdrop-filter` | `backdrop-filter-none`;
 
 /** https://tailwindcss.com/docs/backdrop-blur */
-type BackdropBlur =
-  | `${Breakpoints}backdrop-blur`
-  | `${Breakpoints}backdrop-blur-${'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'}`;
+type BackdropBlur = `backdrop-blur` | `backdrop-blur-${'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'}`;
 
 /** https://tailwindcss.com/docs/backdrop-brightness */
-type BackdropBrightness = `${Breakpoints}backdrop-brightness-${BrightnessAmount}`;
+type BackdropBrightness = `backdrop-brightness-${BrightnessAmount}`;
 
 /** https://tailwindcss.com/docs/backdrop-contrast */
-type BackdropContrast = `${Breakpoints}backdrop-contrast-${ContrastAmount}`;
+type BackdropContrast = `backdrop-contrast-${ContrastAmount}`;
 
 /** https://tailwindcss.com/docs/backdrop-grayscale */
-type BackdropGrayscale = `${Breakpoints}backdrop-grayscale` | `${Breakpoints}backdrop-grayscale-0`;
+type BackdropGrayscale = `backdrop-grayscale` | `backdrop-grayscale-0`;
 
 /** https://tailwindcss.com/docs/backdrop-hue-rotate */
-type BackdropHueRotate = `${Breakpoints}${'-' | ''}backdrop-hue-rotate-${HueRotateAmount}`;
+type BackdropHueRotate = `${'-' | ''}backdrop-hue-rotate-${HueRotateAmount}`;
 
 /** https://tailwindcss.com/docs/backdrop-invert */
-type BackdropInvert = `${Breakpoints}backdrop-invert` | `${Breakpoints}backdrop-invert-0`;
+type BackdropInvert = `backdrop-invert` | `backdrop-invert-0`;
 
 /** https://tailwindcss.com/docs/backdrop-opacity */
-type BackdropOpacity = `${Breakpoints}backdrop-opacity-${OpacityAmount}`;
+type BackdropOpacity = `backdrop-opacity-${OpacityAmount}`;
 
 /** https://tailwindcss.com/docs/backdrop-saturate */
-type BackdropSaturate = `${Breakpoints}backdrop-saturate-${0 | 50 | 100 | 150 | 200}`;
+type BackdropSaturate = `backdrop-saturate-${0 | 50 | 100 | 150 | 200}`;
 
 /** https://tailwindcss.com/docs/backdrop-sepia */
-type BackdropSepia = `${Breakpoints}backdrop-sepia` | `${Breakpoints}backdrop-sepia-0`;
+type BackdropSepia = `backdrop-sepia` | `backdrop-sepia-0`;
 
 /** https://tailwindcss.com/docs/border-collapse */
-type BorderCollapse = `${Breakpoints}border-${'collapse' | 'separate'}`;
+type BorderCollapse = `border-${'collapse' | 'separate'}`;
 
 /** https://tailwindcss.com/docs/table-layout */
-type TableLayout = `${Breakpoints}table-${'auto' | 'fixed'}`;
+type TableLayout = `table-${'auto' | 'fixed'}`;
 
 /** https://tailwindcss.com/docs/transition-property */
-type TransitionProperty =
-  | `${Breakpoints}transition`
-  | `${Breakpoints}transition-${'none' | 'all' | 'colors' | 'opacity' | 'shadow' | 'transform'}`;
+type TransitionProperty = `transition` | `transition-${'none' | 'all' | 'colors' | 'opacity' | 'shadow' | 'transform'}`;
 
 /** https://tailwindcss.com/docs/transition-duration */
-type TransitionDuration = `${Breakpoints}duration-${TransitionAmount}`;
+type TransitionDuration = `duration-${TransitionAmount}`;
 
 /** https://tailwindcss.com/docs/transition-timing-function */
-type TransitionTimingFunction = `${Breakpoints}ease-${'linear' | 'in' | 'out' | 'in-out'}`;
+type TransitionTimingFunction = `ease-${'linear' | 'in' | 'out' | 'in-out'}`;
 
 /** https://tailwindcss.com/docs/transition-delay */
-type TransitionDelay = `${Breakpoints}delay-${TransitionAmount}`;
+type TransitionDelay = `delay-${TransitionAmount}`;
 
 /** https://tailwindcss.com/docs/animation */
-type Animation = `${Breakpoints}animate-${'none' | 'spin' | 'ping' | 'pulse' | 'bounce'}`;
+type Animation = `animate-${'none' | 'spin' | 'ping' | 'pulse' | 'bounce'}`;
 
 /** https://tailwindcss.com/docs/transform */
-type Transform = `${Breakpoints}transform${'-gpu' | '-none' | ''}`;
+type Transform = `transform${'-gpu' | '-none' | ''}`;
 
 /** https://tailwindcss.com/docs/transform-origin */
-type TransformOrigin = `${Breakpoints}origin-${
+type TransformOrigin = `origin-${
   | 'center'
   | 'top'
   | 'top-right'
@@ -680,13 +628,13 @@ type TransformOrigin = `${Breakpoints}origin-${
   | 'top-left'}`;
 
 /** https://tailwindcss.com/docs/scale */
-type Scale = `${Breakpoints}scale${'-x' | '-y' | ''}-${0 | 50 | 75 | 90 | 95 | 100 | 105 | 110 | 125 | 150}`;
+type Scale = `scale${'-x' | '-y' | ''}-${0 | 50 | 75 | 90 | 95 | 100 | 105 | 110 | 125 | 150}`;
 
 /** https://tailwindcss.com/docs/rotate */
-type Rotate = `${Breakpoints}${'-' | ''}rotate-${0 | 1 | 2 | 3 | 6 | 12 | 45 | 90 | 180}`;
+type Rotate = `${'-' | ''}rotate-${0 | 1 | 2 | 3 | 6 | 12 | 45 | 90 | 180}`;
 
 /** https://tailwindcss.com/docs/translate */
-type Translate = `${Breakpoints}${'-' | ''}translate${'-x' | '-y' | ''}-${
+type Translate = `${'-' | ''}translate${'-x' | '-y' | ''}-${
   | Size
   | '1/2'
   | '1/3'
@@ -697,45 +645,40 @@ type Translate = `${Breakpoints}${'-' | ''}translate${'-x' | '-y' | ''}-${
   | 'full'}`;
 
 /** https://tailwindcss.com/docs/skew */
-type Skew = `${Breakpoints}${'-' | ''}skew${'-x' | '-y' | ''}-${0 | 1 | 2 | 3 | 6 | 12}`;
+type Skew = `${'-' | ''}skew${'-x' | '-y' | ''}-${0 | 1 | 2 | 3 | 6 | 12}`;
 
 /** https://tailwindcss.com/docs/appearance */
-type Appearance = `${Breakpoints}appearance-none`;
+type Appearance = `appearance-none`;
 
 /** https://tailwindcss.com/docs/cursor */
-type Cursor = `${Breakpoints}cursor-${
-  | 'auto'
-  | 'default'
-  | 'pointer'
-  | 'wait'
-  | 'text'
-  | 'move'
-  | 'help'
-  | 'not-allowed'}`;
+type Cursor = `cursor-${'auto' | 'default' | 'pointer' | 'wait' | 'text' | 'move' | 'help' | 'not-allowed'}`;
 
 /** https://tailwindcss.com/docs/outline */
-type Outline = `${Breakpoints}outline-${'none' | 'white' | 'black'}`;
+type Outline = `outline-${'none' | 'white' | 'black'}`;
 
 /** https://tailwindcss.com/docs/pointer-events */
-type PointerEvents = `${Breakpoints}pointer-events-${'none' | 'auto'}`;
+type PointerEvents = `pointer-events-${'none' | 'auto'}`;
 
 /** https://tailwindcss.com/docs/resize */
-type Resize = `${Breakpoints}resize` | `${Breakpoints}resize-${'none' | 'y' | 'x'}`;
+type Resize = `resize` | `resize-${'none' | 'y' | 'x'}`;
 
 /** https://tailwindcss.com/docs/user-select */
-type UserSelect = `${Breakpoints}select-${'none' | 'text' | 'all' | 'auto'}`;
+type UserSelect = `select-${'none' | 'text' | 'all' | 'auto'}`;
 
 /** https://tailwindcss.com/docs/fill */
-type Fill = `${Breakpoints}fill-current`;
+type Fill = `fill-current`;
 
 /** https://tailwindcss.com/docs/stroke */
-type Stroke = `${Breakpoints}stroke-current`;
+type Stroke = `stroke-current`;
 
 /** https://tailwindcss.com/docs/stroke-width */
-type StrokeWidth = `${Breakpoints}stroke-${0 | 1 | 2}`;
+type StrokeWidth = `stroke-${0 | 1 | 2}`;
 
 /** https://tailwindcss.com/docs/screen-readers */
-type ScreenReaders = `${Breakpoints}sr-only` | `${Breakpoints}not-sr-only`;
+type ScreenReaders = `sr-only` | `not-sr-only`;
+
+/** https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover */
+type Group = 'group';
 
 export type TailwindClass =
   | BoxSizing
@@ -874,20 +817,80 @@ export type TailwindClass =
   | Fill
   | Stroke
   | StrokeWidth
-  | ScreenReaders;
+  | ScreenReaders
+  | Group;
 
 export type TailwindClassValue =
   | TailwindClassDictionary
-  | TailwindClassArray
+  | TailwindModifierDictionary
   | TailwindClass
   | null
   | boolean
   | undefined;
 
+type DarkModeModifier = 'dark';
+
+type ModifierBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+type MotionStateModifier = 'motion-safe' | 'motion-reduce';
+
+type StateModifier =
+  | 'hover'
+  | 'focus'
+  | 'active'
+  | 'group-hover'
+  | 'group-focus'
+  | 'focus-within'
+  | 'disabled'
+  | 'visited'
+  | 'checked'
+  | 'first'
+  | 'last'
+  | 'odd'
+  | 'even';
+
+type Modifier =
+  | DarkModeModifier
+  | ModifierBreakpoint
+  | MotionStateModifier
+  | StateModifier
+  | `${ModifierBreakpoint}${`:${DarkModeModifier}` | ''}:${MotionStateModifier}`
+  | `${ModifierBreakpoint}${`:${DarkModeModifier}` | ''}:${MotionStateModifier}:${StateModifier}`
+  | `${ModifierBreakpoint}${`:${DarkModeModifier}` | ''}:${StateModifier}`;
+
 export type TailwindClassDictionary = {
-  [id in TailwindClass]?: boolean;
+  [id in TailwindClass]?: boolean | undefined;
 };
 
-export interface TailwindClassArray extends Array<TailwindClassValue> {}
+type ConditionalTailwindArray = Array<TailwindClass | undefined | false>;
 
-export const tw: (...args: TailwindClassValue[]) => string = clsx;
+export type TailwindModifierDictionary = {
+  [id in Modifier]?: TailwindClass | ConditionalTailwindArray | undefined;
+};
+
+export const tw = (...args: TailwindClassValue[]): string => {
+  let classes = '';
+  for (const arg of args) {
+    if (typeof arg === 'string' && arg) {
+      classes += ` ${arg}`;
+    } else if (typeof arg === 'object') {
+      for (const key in arg) {
+        const value = arg[key as keyof typeof arg] as boolean | undefined | TailwindClass | ConditionalTailwindArray;
+        if (Array.isArray(value)) {
+          const arr = value;
+          classes += ` ${arr
+            .reduce(
+              (prev, current) => (current && typeof current === 'string' ? `${prev} ${key}:${current}` : prev),
+              '',
+            )
+            .trimStart()}`;
+        } else if (typeof value === 'string') {
+          classes += ` ${key}:${value}`;
+        } else if (typeof value === 'boolean' && value) {
+          classes += ` ${key}`;
+        }
+      }
+    }
+  }
+  return classes.trimStart();
+};
