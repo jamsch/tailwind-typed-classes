@@ -145,7 +145,7 @@ type Overflow = `overflow${'-x' | '-y' | ''}-${'auto' | 'hidden' | 'visible' | '
 type OverscrollBehavior = `overscroll${'-x' | '-y' | ''}-${'auto' | 'contain' | 'none'}`;
 
 /** https://tailwindcss.com/docs/position */
-type Position = `position-${'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'}`;
+type Position = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 
 type Placement = 'inset' | 'top' | 'right' | 'bottom' | 'left';
 
