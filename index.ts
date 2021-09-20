@@ -168,7 +168,7 @@ type FlexDirection = `flex-${'row' | 'row-reverse' | 'col' | 'col-reverse'}`;
 type FlexWrap = `flex-${'wrap' | 'wrap-reverse' | 'nowrap'}`;
 
 /** https://tailwindcss.com/docs/flex */
-type Flex = `flex-${'1' | 'auto' | 'initial' | 'none'}`;
+type Flex = 'flex' | `flex-${'1' | 'auto' | 'initial' | 'none'}`;
 
 /** https://tailwindcss.com/docs/flex-grow */
 type FlexGrow = `flex-grow${'-0' | ''}`;
