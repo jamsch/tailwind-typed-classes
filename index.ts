@@ -271,7 +271,7 @@ type Axis = 'x' | 'y' | 't' | 'r' | 'l' | 'b' | '';
 type Padding = `p${Axis}-${Size}`;
 
 /** https://tailwindcss.com/docs/margin */
-type Margin = `${'-' | ''}m${Axis}-${Size}`;
+type Margin = `-m${Axis}-${Size}` | `m${Axis}-${Size | 'auto'}`;
 
 /** https://tailwindcss.com/docs/space */
 type Space = `${'-' | ''}space-${'x' | 'y'}-${Size | 'reverse'}`;
