@@ -102,7 +102,8 @@ type BoxDecorationBreak = `decoration-${'slice' | 'clone'}`;
 /** https://tailwindcss.com/docs/box-sizing */
 type BoxSizing = `box-${'border' | 'content'}`;
 
-type DisplayMode =
+/** https://tailwindcss.com/docs/display */
+type Display =
   | 'block'
   | 'inline-block'
   | 'inline'
@@ -125,8 +126,6 @@ type DisplayMode =
   | 'list-item'
   | 'hidden';
 
-/** https://tailwindcss.com/docs/display */
-type Display = `display-${DisplayMode}`;
 /** https://tailwindcss.com/docs/float */
 type Float = `float-${'left' | 'right' | 'none'}`;
 /** https://tailwindcss.com/docs/clear */
