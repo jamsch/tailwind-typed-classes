@@ -829,7 +829,7 @@ export type TailwindClassValue =
 
 type DarkModeModifier = 'dark';
 
-type ModifierBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type ModifierBreakpoint = 'sm' | 'md' | 'lg' | 'xl';
 
 type MotionStateModifier = 'motion-safe' | 'motion-reduce';
 
@@ -864,7 +864,7 @@ export type TailwindClassDictionary = {
 type ConditionalTailwindArray = Array<TailwindClass | undefined | false>;
 
 export type TailwindModifierDictionary = {
-  [id in Modifier]?: TailwindClass | ConditionalTailwindArray | undefined;
+  [id in Modifier]?: TailwindClass | ConditionalTailwindArray | undefined | false;
 };
 
 export const tw = (...args: TailwindClassValue[]): string => {
