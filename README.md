@@ -2,6 +2,10 @@
 
 Typesafe tailwind classes for use in TypeScript projects
 
+## Prerequisites
+
+- Typescript >4.1
+
 ## Installation
 
 ```sh
