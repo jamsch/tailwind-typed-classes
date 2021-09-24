@@ -113,3 +113,70 @@ module.exports = {
   },
 };
 ```
+
+## Extending config
+
+Since Tailwind allows you to add additional colors, screens and other properties, you need to provide this library the list of additions you've made. You can do this by importing the `createTw` class and providing a list of additional colors, screens and other options.
+
+Currently, the list of supported config options are the following:
+
+```ts
+type ExtendConfig = {
+  screens?: string;
+  animation?: string;
+  backgroundImage?: string;
+  opacity?: string;
+  colors?: string;
+};
+```
+
+### Example
+
+```ts
+// tw.ts
+import { createTw } from '@jamsch/typed-tailwind-classes';
+
+type ExtendedConfig = {
+  colors: 'maroon' | 'navyblue';
+  animation: 'spin-360';
+  opacity: '15' | '35' | '65';
+  screens: 'portrait' | 'tablet';
+};
+
+export default createTw<ExtendedConfig>();
+```
+
+In another file:
+
+```ts
+import tw from './tw';
+
+const classes = tw('bg-maroon', 'bg-opacity-15', 'opacity-35', {
+  portrait: 'border-0',
+  'portrait:hover': ['animate-spin-360', 'border-2'],
+  'tablet:dark': 'bg-navyblue',
+}); // "bg-maroon bg-opacity-15 opacity-35 portrait:border-0 portrait:hover:animate-spin-360 portrait:hover:border-2 tablet:dark:bg-navyblue"
+```
+
+Alternatively, you can use `BuildTailwindClasses` and `BuildVariants` to generate the class names.
+
+```ts
+import type { BuildTailwindClasses, BuildVariants } from '@jamsch/typed-tailwind-classes';
+
+type ExtendedConfig = {
+  colors: 'maroon' | 'navyblue';
+  animation: 'spin-360';
+  opacity: '15' | '35' | '65';
+  screens: 'portrait' | 'tablet';
+};
+
+type ExtendedTailwindClasses = BuildTailwindClasses<ExtendedConfig>;
+type Variants = BuildVariants<'portrait' | 'tablet'>;
+
+// Warning: This will probably not work, and also isn't a great idea for performance
+type AllClassesAndVariants = ExtendedTailwindClasses | `${Variants}:${ExtendedTailwindClasses}`;
+
+const maroon: ExtendedTailwindClasses = 'bg-maroon'; // OK
+const blue: ExtendedTailwindClasses = 'bg-blue-100'; // OK
+const maroonTwo: ExtendedTailwindClasses = 'bg-maroon-2'; // Error!
+```

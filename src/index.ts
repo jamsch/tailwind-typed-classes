@@ -52,6 +52,11 @@ type Color =
       | 800
       | 900}`;
 
+type ExtendValue<
+  TBase extends string | number,
+  TValue extends string | undefined = undefined,
+> = TValue extends undefined ? TBase : TBase | TValue;
+
 type OpacityAmount = 0 | 5 | 10 | 20 | 25 | 30 | 40 | 50 | 60 | 70 | 75 | 80 | 90 | 95 | 100;
 
 type PositionSide =
@@ -407,7 +412,7 @@ type ListStyleType = `list-${'none' | 'disc' | 'decimal'}`;
 type ListStylePosition = `list-${'inside' | 'outside'}`;
 
 /** https://tailwindcss.com/docs/placeholder-color */
-type PlaceholderColor = `placeholder-${Color}`;
+type PlaceholderColor<TColors extends string | undefined = undefined> = `placeholder-${ExtendValue<Color, TColors>}`;
 
 /** https://tailwindcss.com/docs/text-align */
 type TextAlign = `text-${'left' | 'center' | 'right' | 'justify'}`;
@@ -416,7 +421,7 @@ type TextAlign = `text-${'left' | 'center' | 'right' | 'justify'}`;
 type TextColor = `text-${Color}`;
 
 /** https://tailwindcss.com/docs/text-opacity */
-type TextOpacity = `text-opacity-${OpacityAmount}`;
+type TextOpacity<TOpacity extends string | undefined> = `text-opacity-${ExtendValue<OpacityAmount, TOpacity>}`;
 
 /** https://tailwindcss.com/docs/text-decoration */
 type TextDecoration = `${'underline' | 'line-through' | 'no-underline'}`;
@@ -443,10 +448,10 @@ type BackgroundAttachment = `bg-${'fixed' | 'local' | 'scroll'}`;
 type BackgroundClip = `bg-clip-${'border' | 'padding' | 'content' | 'text'}`;
 
 /** https://tailwindcss.com/docs/background-color */
-type BackgroundColor = `bg-${Color}`;
+type BackgroundColor<TColor extends string | undefined> = `bg-${ExtendValue<Color, TColor>}`;
 
 /** https://tailwindcss.com/docs/background-opacity */
-type BackgroundOpacity = `bg-opacity-${OpacityAmount}`;
+type BackgroundOpacity<TOpacity extends string | undefined> = `bg-opacity-${ExtendValue<OpacityAmount, TOpacity>}`;
 
 /** https://tailwindcss.com/docs/background-origin */
 type BackgroundOrigin = `bg-origin-${'border' | 'padding' | 'content'}`;
@@ -461,10 +466,13 @@ type BackgroundRepeat = `bg-${'repeat' | 'no-repeat' | 'repeat-x' | 'repeat-y' |
 type BackgroundSize = `bg-${'auto' | 'cover' | 'contain'}`;
 
 /** https://tailwindcss.com/docs/background-image */
-type BackgroundImage = `bg-${'none' | `gradient-to-${'t' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl'}`}`;
+type BackgroundImage<TExtraBgs extends string | undefined> = `bg-${ExtendValue<
+  'none' | `gradient-to-${'t' | 'tr' | 'r' | 'br' | 'b' | 'bl' | 'l' | 'tl'}`,
+  TExtraBgs
+>}`;
 
 /** https://tailwindcss.com/docs/gradient-color-stops */
-type GradientColorStops = `${'from' | 'via' | 'to'}-${Color}`;
+type GradientColorStops<TColor extends string | undefined> = `${'from' | 'via' | 'to'}-${ExtendValue<Color, TColor>}`;
 
 /** https://tailwindcss.com/docs/border-radius */
 type BorderRadius =
@@ -483,10 +491,10 @@ type BorderRadius =
 type BorderWidth = `border${'-t' | '-r' | '-b' | '-l' | ''}${'-0' | '-2' | '-4' | '-8' | ''}`;
 
 /** https://tailwindcss.com/docs/border-color */
-type BorderColor = `border-${Color}`;
+type BorderColor<TColor extends string | undefined> = `border-${ExtendValue<Color, TColor>}`;
 
 /** https://tailwindcss.com/docs/border-opacity */
-type BorderOpacity = `border-opacity-${OpacityAmount}`;
+type BorderOpacity<TOpacity extends string | undefined> = `border-opacity-${ExtendValue<OpacityAmount, TOpacity>}`;
 
 /** https://tailwindcss.com/docs/border-style */
 type BorderStyle = `border-${'solid' | 'dashed' | 'dotted' | 'double' | 'none'}`;
@@ -498,7 +506,7 @@ type DivideWidth = `divide-${'x' | 'y'}${'-0' | '-2' | '-4' | '-8' | '-reverse' 
 type DivideColor = `divide-${Color}`;
 
 /** https://tailwindcss.com/docs/divide-opacity */
-type DivideOpacity = `divide-opacity-${OpacityAmount}`;
+type DivideOpacity<TOpacity extends string | undefined> = `divide-opacity-${ExtendValue<OpacityAmount, TOpacity>}`;
 
 /** https://tailwindcss.com/docs/divide-style */
 type DivideStyle = `divide-${'solid' | 'dashed' | 'dotted' | 'double' | 'none'}`;
@@ -510,7 +518,7 @@ type RingWidth = `ring` | `ring-${0 | 1 | 2 | 4 | 8 | 'inset'}`;
 type RingColor = `ring-${Color}`;
 
 /** https://tailwindcss.com/docs/ring-opacity */
-type RingOpacity = `ring-opacity-${OpacityAmount}`;
+type RingOpacity<TOpacity extends string | undefined> = `ring-opacity-${ExtendValue<OpacityAmount, TOpacity>}`;
 
 /** https://tailwindcss.com/docs/ring-offset-width */
 type RingOffsetWidth = `ring-offset-${0 | 1 | 2 | 4 | 8}`;
@@ -522,7 +530,7 @@ type RingOffsetColor = `ring-offset-${Color}`;
 type BoxShadow = `shadow` | `shadow-${'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner' | 'none'}`;
 
 /** https://tailwindcss.com/docs/opacity */
-type Opacity = `opacity-${OpacityAmount}`;
+type Opacity<TOpacity extends string | undefined> = `opacity-${ExtendValue<OpacityAmount, TOpacity>}`;
 
 /** https://tailwindcss.com/docs/mix-blend-mode */
 type MixBlendMode = `mix-blend-${BlendMode}`;
@@ -582,7 +590,7 @@ type BackdropHueRotate = `${'-' | ''}backdrop-hue-rotate-${HueRotateAmount}`;
 type BackdropInvert = `backdrop-invert` | `backdrop-invert-0`;
 
 /** https://tailwindcss.com/docs/backdrop-opacity */
-type BackdropOpacity = `backdrop-opacity-${OpacityAmount}`;
+type BackdropOpacity<TOpacity extends string | undefined> = `backdrop-opacity-${ExtendValue<OpacityAmount, TOpacity>}`;
 
 /** https://tailwindcss.com/docs/backdrop-saturate */
 type BackdropSaturate = `backdrop-saturate-${0 | 50 | 100 | 150 | 200}`;
@@ -609,7 +617,14 @@ type TransitionTimingFunction = `ease-${'linear' | 'in' | 'out' | 'in-out'}`;
 type TransitionDelay = `delay-${TransitionAmount}`;
 
 /** https://tailwindcss.com/docs/animation */
-type Animation = `animate-${'none' | 'spin' | 'ping' | 'pulse' | 'bounce'}`;
+type BaseAnimationValue = 'none' | 'spin' | 'ping' | 'pulse' | 'bounce';
+
+type Animation = `animate-${BaseAnimationValue}`;
+
+type ExtendedAnimation<TAnimation extends string | undefined> = `animate-${ExtendValue<
+  BaseAnimationValue,
+  TAnimation
+>}`;
 
 /** https://tailwindcss.com/docs/transform */
 type Transform = `transform${'-gpu' | '-none' | ''}`;
@@ -679,7 +694,28 @@ type ScreenReaders = `sr-only` | `not-sr-only`;
 /** https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover */
 type Group = 'group';
 
-export type TailwindClass =
+export type ExtendConfig = {
+  screens?: string;
+  animation?: string;
+  backgroundImage?: string;
+  opacity?: string;
+  colors?: string;
+};
+
+type BuildTailwindScreens<
+  TConfig extends ExtendConfig = {},
+  TScreens extends string | undefined = TConfig['screens'] extends string ? TConfig['screens'] : undefined,
+> = ExtendValue<Breakpoints, TScreens>;
+
+export type BuildTailwindClasses<
+  TConfig extends ExtendConfig = {},
+  TAnimation extends string | undefined = TConfig['animation'] extends string ? TConfig['animation'] : undefined,
+  TBackgroundImage extends string | undefined = TConfig['backgroundImage'] extends string
+    ? TConfig['backgroundImage']
+    : undefined,
+  TOpacity extends string | undefined = TConfig['opacity'] extends string ? TConfig['opacity'] : undefined,
+  TColors extends string | undefined = TConfig['colors'] extends string ? TConfig['colors'] : undefined,
+> =
   | BoxSizing
   | Container
   | BoxDecorationBreak
@@ -736,10 +772,10 @@ export type TailwindClass =
   | LineHeight
   | ListStyleType
   | ListStylePosition
-  | PlaceholderColor
+  | PlaceholderColor<TColors>
   | TextAlign
   | TextColor
-  | TextOpacity
+  | TextOpacity<TOpacity>
   | TextDecoration
   | TextTransform
   | TextOverflow
@@ -748,30 +784,30 @@ export type TailwindClass =
   | WordBreak
   | BackgroundAttachment
   | BackgroundClip
-  | BackgroundColor
-  | BackgroundOpacity
+  | BackgroundColor<TColors>
+  | BackgroundOpacity<TOpacity>
   | BackgroundOrigin
   | BackgroundPosition
   | BackgroundRepeat
   | BackgroundSize
-  | BackgroundImage
-  | GradientColorStops
+  | BackgroundImage<TBackgroundImage>
+  | GradientColorStops<TColors>
   | BorderRadius
   | BorderWidth
-  | BorderColor
-  | BorderOpacity
+  | BorderColor<TColors>
+  | BorderOpacity<TOpacity>
   | BorderStyle
   | DivideWidth
   | DivideColor
-  | DivideOpacity
+  | DivideOpacity<TOpacity>
   | DivideStyle
   | RingWidth
   | RingColor
-  | RingOpacity
+  | RingOpacity<TOpacity>
   | RingOffsetWidth
   | RingOffsetColor
   | BoxShadow
-  | Opacity
+  | Opacity<TOpacity>
   | MixBlendMode
   | BackgroundBlendMode
   | Filter
@@ -791,7 +827,7 @@ export type TailwindClass =
   | BackdropGrayscale
   | BackdropHueRotate
   | BackdropInvert
-  | BackdropOpacity
+  | BackdropOpacity<TOpacity>
   | BackdropSaturate
   | BackdropSepia
   | BorderCollapse
@@ -800,7 +836,7 @@ export type TailwindClass =
   | TransitionDuration
   | TransitionTimingFunction
   | TransitionDelay
-  | Animation
+  | ExtendedAnimation<TAnimation>
   | Transform
   | TransformOrigin
   | Scale
@@ -819,21 +855,24 @@ export type TailwindClass =
   | ScreenReaders
   | Group;
 
-export type TailwindClassValue =
-  | TailwindClassDictionary
-  | TailwindModifierDictionary
-  | TailwindClass
+export type TailwindClass = BuildTailwindClasses;
+
+type TailwindClassValue<TClasses extends string, TScreens extends string> =
+  | TailwindClassDictionary<TClasses>
+  | TailwindVariantDictionary<TClasses, TScreens>
+  | TClasses
   | null
   | boolean
   | undefined;
 
-type DarkModeModifier = 'dark';
+type DarkModeVariant = 'dark';
 
-type ModifierBreakpoint = 'sm' | 'md' | 'lg' | 'xl';
+type Breakpoints = 'sm' | 'md' | 'lg' | 'xl';
+type ResponsiveVariant<TScreens extends string | undefined> = ExtendValue<Breakpoints, TScreens>;
 
-type MotionStateModifier = 'motion-safe' | 'motion-reduce';
+type MotionStateVariant = 'motion-safe' | 'motion-reduce';
 
-type StateModifier =
+type StateVariant =
   | 'hover'
   | 'focus'
   | 'active'
@@ -848,33 +887,44 @@ type StateModifier =
   | 'odd'
   | 'even';
 
-type Modifier =
-  | DarkModeModifier
-  | ModifierBreakpoint
-  | MotionStateModifier
-  | StateModifier
-  | `${ModifierBreakpoint}${`:${DarkModeModifier}` | ''}:${MotionStateModifier}`
-  | `${ModifierBreakpoint}${`:${DarkModeModifier}` | ''}:${MotionStateModifier}:${StateModifier}`
-  | `${ModifierBreakpoint}${`:${DarkModeModifier}` | ''}:${StateModifier}`;
+export type BuildVariants<TScreens extends string> =
+  | DarkModeVariant
+  | ResponsiveVariant<TScreens>
+  | MotionStateVariant
+  | StateVariant
+  | `${ResponsiveVariant<TScreens>}${`:${DarkModeVariant}` | ''}:${MotionStateVariant}`
+  | `${ResponsiveVariant<TScreens>}${`:${DarkModeVariant}` | ''}:${MotionStateVariant}:${StateVariant}`
+  | `${ResponsiveVariant<TScreens>}${`:${DarkModeVariant}` | ''}:${StateVariant}`
+  | `${ResponsiveVariant<TScreens>}:${DarkModeVariant}`;
 
-export type TailwindClassDictionary = {
-  [id in TailwindClass]?: boolean | undefined;
+export type TailwindClassDictionary<TClasses extends string = TailwindClass> = {
+  [id in TClasses]?: boolean | undefined;
 };
 
-type ConditionalTailwindArray = Array<TailwindClass | undefined | false>;
+type ConditionalTailwindArray<TClasses extends string> = Array<TClasses | undefined | false>;
 
-export type TailwindModifierDictionary = {
-  [id in Modifier]?: TailwindClass | ConditionalTailwindArray | undefined | false;
+export type TailwindVariantDictionary<TClasses extends string, TScreens extends string> = {
+  [id in BuildVariants<TScreens>]?: TClasses | ConditionalTailwindArray<TClasses> | undefined | false;
 };
 
-export const tw = (...args: TailwindClassValue[]): string => {
+type TailwindClassBuilderFunction<TClasses extends string, TScreens extends string> = (
+  ...args: TailwindClassValue<TClasses, TScreens>[]
+) => string;
+
+function baseTw<TClasses extends string, TScreens extends string>(
+  ...args: TailwindClassValue<TClasses, TScreens>[]
+): string {
   let classes = '';
   for (const arg of args) {
     if (typeof arg === 'string' && arg) {
       classes += ` ${arg}`;
     } else if (typeof arg === 'object') {
       for (const key in arg) {
-        const value = arg[key as keyof typeof arg] as boolean | undefined | TailwindClass | ConditionalTailwindArray;
+        const value = arg[key as keyof typeof arg] as
+          | boolean
+          | undefined
+          | TailwindClass
+          | ConditionalTailwindArray<TClasses>;
         if (Array.isArray(value)) {
           const arr = value;
           classes += ` ${arr
@@ -892,4 +942,14 @@ export const tw = (...args: TailwindClassValue[]): string => {
     }
   }
   return classes.trimStart();
-};
+}
+
+export const tw: TailwindClassBuilderFunction<TailwindClass, Breakpoints> = baseTw;
+
+/** Extends base Tailwind classes & screens */
+export function createTw<TConfig extends ExtendConfig>(): TailwindClassBuilderFunction<
+  BuildTailwindClasses<TConfig>,
+  BuildTailwindScreens<TConfig>
+> {
+  return baseTw;
+}
