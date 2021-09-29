@@ -350,7 +350,7 @@ type MinHeight = `min-h-${0 | 'full' | 'screen'}`;
 type MaxHeight = `max-h-${Size | ExtraHeightSizes}`;
 
 /** https://tailwindcss.com/docs/font-family */
-type FontFamily<TFontFamily extends string | undefined> = `font-${ExtendValue<'font-sans' | 'font-serif' | 'font-mono', TFontFamily>}`;
+type FontFamily<TFontFamily extends string | undefined> = `font-${ExtendValue<'sans' | 'serif' | 'mono', TFontFamily>}`;
 
 /** https://tailwindcss.com/docs/font-size */
 type FontSize = `text-${'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '8xl' | '9xl'}`;
