@@ -350,7 +350,7 @@ type MinHeight = `min-h-${0 | 'full' | 'screen'}`;
 type MaxHeight = `max-h-${Size | ExtraHeightSizes}`;
 
 /** https://tailwindcss.com/docs/font-family */
-type FontFamily = 'font-sans' | 'font-serif' | 'font-mono';
+type FontFamily<TFontFamily extends string | undefined> = `font-${ExtendValue<'font-sans' | 'font-serif' | 'font-mono', TFontFamily>}`;
 
 /** https://tailwindcss.com/docs/font-size */
 type FontSize = `text-${'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '8xl' | '9xl'}`;
@@ -695,6 +695,7 @@ type ScreenReaders = `sr-only` | `not-sr-only`;
 type Group = 'group';
 
 export type ExtendConfig = {
+  fontFamily?: string;
   screens?: string;
   animation?: string;
   backgroundImage?: string;
@@ -715,6 +716,7 @@ export type BuildTailwindClasses<
     : undefined,
   TOpacity extends string | undefined = TConfig['opacity'] extends string ? TConfig['opacity'] : undefined,
   TColors extends string | undefined = TConfig['colors'] extends string ? TConfig['colors'] : undefined,
+  TFontFamily extends string | undefined = TConfig['fontFamily'] extends string ? TConfig['fontFamily'] : undefined,
 > =
   | BoxSizing
   | Container
@@ -762,7 +764,7 @@ export type BuildTailwindClasses<
   | Height
   | MinHeight
   | MaxHeight
-  | FontFamily
+  | FontFamily<TFontFamily>
   | FontSize
   | FontSmoothing
   | FontStyle
