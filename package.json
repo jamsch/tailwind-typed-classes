@@ -4,7 +4,7 @@
   "author": "jamsch (https://github.com/jamsch)",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Typesafe tailwind classes for use in TypeScript projects",
   "files": [
     "src",
