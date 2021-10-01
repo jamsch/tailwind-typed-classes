@@ -353,7 +353,20 @@ type MaxHeight = `max-h-${Size | ExtraHeightSizes}`;
 type FontFamily<TFontFamily extends string | undefined> = `font-${ExtendValue<'sans' | 'serif' | 'mono', TFontFamily>}`;
 
 /** https://tailwindcss.com/docs/font-size */
-type FontSize = `text-${'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '8xl' | '9xl'}`;
+type FontSize = `text-${
+  | 'xs'
+  | 'sm'
+  | 'base'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+  | '8xl'
+  | '9xl'}`;
 
 /** https://tailwindcss.com/docs/font-smoothing */
 type FontSmoothing = `${'antialiased' | 'subpixel-antialiased'}`;
