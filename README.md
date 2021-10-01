@@ -122,11 +122,12 @@ Currently, the list of supported config options are the following:
 
 ```ts
 type ExtendConfig = {
-  screens?: string;
   animation?: string;
   backgroundImage?: string;
-  opacity?: string;
   colors?: string;
+  fontFamily?: string;
+  opacity?: string;  
+  screens?: string;
 };
 ```
 
@@ -137,6 +138,7 @@ type ExtendConfig = {
 import { createTw } from '@jamsch/typed-tailwind-classes';
 
 type ExtendedConfig = {
+  fontFamily: 'merriweather' | 'noto-sans';
   colors: 'maroon' | 'navyblue';
   animation: 'spin-360';
   opacity: '15' | '35' | '65';
@@ -151,11 +153,11 @@ In another file:
 ```ts
 import tw from './tw';
 
-const classes = tw('bg-maroon', 'bg-opacity-15', 'opacity-35', {
+const classes = tw('font-noto-sans', 'bg-maroon', 'bg-opacity-15', 'opacity-35', {
   portrait: 'border-0',
   'portrait:hover': ['animate-spin-360', 'border-2'],
   'tablet:dark': 'bg-navyblue',
-}); // "bg-maroon bg-opacity-15 opacity-35 portrait:border-0 portrait:hover:animate-spin-360 portrait:hover:border-2 tablet:dark:bg-navyblue"
+}); // "font-noto-sans bg-maroon bg-opacity-15 opacity-35 portrait:border-0 portrait:hover:animate-spin-360 portrait:hover:border-2 tablet:dark:bg-navyblue"
 ```
 
 Alternatively, you can use `BuildTailwindClasses` and `BuildVariants` to generate the class names.
